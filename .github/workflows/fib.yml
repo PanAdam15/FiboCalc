@@ -38,6 +38,7 @@ jobs:
           context: .
           push: false
           tags: user/app:latest
+          platforms": intel-64, apple-m1 
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
 
