@@ -76,8 +76,4 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
           
-      - name: Build Docker image
-        run: |
-          docker build . --tag ghcr.io/panadam15/fibcalc
-          docker run ghcr.io/panadam15/fibcalc
-          docker push ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
+
