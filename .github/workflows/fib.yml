@@ -76,3 +76,9 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
+          
+      - name: Build Docker image
+        run: |
+          docker build . --tag ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
+          docker run ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
+          docker push ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
