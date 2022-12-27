@@ -57,18 +57,18 @@ jobs:
             
       # And make it available for builds
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: .
-          push: false
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=registry,ref=docker.io/panadam15/zad1:cache
           cache-to: type=registry,ref=docker.io/panadam15/zad1:cache,mode=max
   
-      - name: Build Docker image
-        run: |
-          docker build . --tag ghcr.io/panadam15/fibcalc
-          docker run ghcr.io/panadam15/fibcalc
-          docker push ghcr.io/panadam15/fibcalc
+ ##     - name: Build Docker image
+ ##       run: |
+ ##         docker build . --tag ghcr.io/panadam15/fibcalc
+ ##         docker run ghcr.io/panadam15/fibcalc
+ ##         docker push ghcr.io/panadam15/fibcalc
