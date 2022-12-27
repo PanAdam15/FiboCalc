@@ -44,11 +44,6 @@ jobs:
           cache-from: type=registry,ref=docker.io/panadam15/zad1:cache
           cache-to: type=registry,ref=docker.io/panadam15/zad1:cache,mode=max
 
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-          
       - name: Docker meta
         uses: docker/metadata-action@v4
         id: meta
