@@ -40,7 +40,7 @@ jobs:
           context: .
           push: false
           tags: user/app:latest
-          platforms": intel-64, apple-m1 
+          platforms: linux/amd64,linux/arm64
           cache-from: type=registry,ref=docker.io/panadam15/zad1:cache
           cache-to: type=registry,ref=docker.io/panadam15/zad1:cache,mode=max
 
@@ -69,6 +69,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
