@@ -55,6 +55,6 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build . --tag ghcr.io/panadam15/fibcalc:latest
-          docker run ghcr.io/panadam15/fibcalc:latest
-          docker push ghcr.io/panadam15/fibcalc:latest
+          docker build . --tag ghcr.io/panadam15/fibcalc:0.0.1
+          docker run ghcr.io/panadam15/fibcalc:0.0.1
+          docker push ghcr.io/panadam15/fibcalc:0.0.1
