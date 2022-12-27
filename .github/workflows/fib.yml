@@ -47,7 +47,7 @@ jobs:
         id: meta
         with:
           images: |
-            panadam15/fibcalc
+            panadam15/fibocalc
             ghcr.io/${{ github.repository }}
           tags: |
             type=ref,event=branch
