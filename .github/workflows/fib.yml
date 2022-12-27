@@ -78,6 +78,6 @@ jobs:
           
       - name: Build Docker image
         run: |
-          docker build . --tag ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
-          docker run ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
-          docker push ghcr.io/panadam15/fibcalc:${{ steps.meta.outputs.tags }}
+          docker build . --tag ghcr.io/panadam15/fibcalc
+          docker run ghcr.io/panadam15/fibcalc
+          docker push ghcr.io/panadam15/fibcalc
