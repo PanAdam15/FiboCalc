@@ -2,10 +2,16 @@ name: Chmury_Zad1
 
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - "main"
-
+      - 'main'
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - 'main'
+      
 jobs:
   docker:
     runs-on: ubuntu-20.04
@@ -40,7 +46,8 @@ jobs:
         with:
           context: .
           push: false
-          tags: user/app:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           cache-from: type=registry,ref=docker.io/panadam15/zad1:cache
           cache-to: type=registry,ref=docker.io/panadam15/zad1:cache,mode=max
