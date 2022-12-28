@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Dockerfile_dod1
           push: true
           buildkit: true
           tags: ${{ steps.meta.outputs.tags }}
