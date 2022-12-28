@@ -53,14 +53,10 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          buildkit: true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platform: 
-            -linux/amd64
-            -linux/arm64/v8
-          registry: docker.io
+          platforms: linux/amd64,linux/arm64
           cache-from: type=registry,ref=docker.io/panadam15/zad1:cache
           cache-to: type=registry,ref=docker.io/panadam15/zad1:cache,mode=max
   
@@ -69,5 +65,6 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.TOKEN }}
