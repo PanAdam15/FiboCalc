@@ -2,12 +2,12 @@ FROM openjdk:8-jdk-alpine as builder
 
 COPY ./out/artifacts/fibcalc_jar/fibcalc.jar /usr/app/
 
-FROM multiarch/alpine:arm64-v8-latest as arm64
+FROM openjdk:8-jdk-alpine:arm64-v8-latest as arm64
 COPY --from=builder /usr/app/fibcalc.jar /usr/app/fibcalc.jar
 WORKDIR /usr/app
 ENTRYPOINT ["java", "-jar", "fibcalc.jar"]
 
-FROM multiarch/alpine:amd64-latest as amd64
+FROM openjdk:8-jdk-alpine:amd64-latest as amd64
 COPY --from=builder /usr/app/fibcalc.jar /usr/app/fibcalc.jar
 WORKDIR /usr/app
 ENTRYPOINT ["java", "-jar", "fibcalc.jar"]
